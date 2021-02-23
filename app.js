@@ -28,12 +28,10 @@ mongoose.connect(ConectionString, { useUnifiedTopology: true, useNewUrlParser: t
 });
 
 // linking routes
-app.use(require('./routes/index'));
-app.use(require('./routes/addToDo'));
-app.use(require('./routes/removeToDo'));
-app.use(require('./routes/editToDo'));
-app.use(require('./routes/sorting'));
-// app.use(require('./routes/pagination'));
+app.use(require('./routes/createTodo'));
+app.use(require('./routes/readTodo'));
+app.use(require('./routes/updateTodo'));
+app.use(require('./routes/deleteTodo'));
 
 app.listen(port, () => {
   console.log(chalk.blue.bold('Server is running on port: ' + port));

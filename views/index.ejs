@@ -27,7 +27,7 @@
   <body>
     <div id="Wrapper">
       <header id="headerText">
-        <h1>To-do</h1>
+        <a href="/"><h1>To-do</h1></a>
         <div id="dateWrapper">
           <h4 id="theWeekDay"></h4>
           <p id="theDate"></p>
@@ -35,7 +35,7 @@
       </header>
 
       <section id="toDoWrapper">
-        <form class="inputForm" action="/add/todo" method="POST">
+        <form class="inputForm" action="/" method="POST">
           <div id="inputformWrapper">
             <input id="formSubmitInput" type="text" name="Name" placeholder="Add a new task" required />
             <button id="formSubmitBtn" class="far fa-paper-plane" type="submit"></button>
@@ -55,8 +55,10 @@
               Sorting
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="/sort/latest">Latest first</a>
-              <a class="dropdown-item" href="/sort/oldest">Oldest first</a>
+              <a class="dropdown-item" href="/?page=<%=(amountShown/amountToShowPerReq)%>&&sorted=-1">Most recent</a>
+              <a class="dropdown-item" href="/?page=<%=(amountShown/amountToShowPerReq)%>&&sorted=1">In order</a>
+              <!-- <a class="dropdown-item" href="/?sorted=-1">Most recent</a>
+              <a class="dropdown-item" href="/?sorted=1">In order</a> -->
             </div>
           </div>
         </div>
@@ -66,7 +68,7 @@
           <li>
             <%= task.Name%>
             <div class="editBtnWrapper">
-              <a href="/editToDo/<%= task._id %> "
+              <a href="/editToDo/<%= task._id %>/?page=<%= page %>&&sorted=<%= sortByDate %> "
                 ><button class="editBtn"><i class="fas fa-pencil-alt"></i></button
               ></a>
               <a href="/deleteToDo/<%= task._id %> "
@@ -76,6 +78,11 @@
           </li>
           <%}) %>
         </ul>
+        <% if(totalTodoPages !== amountShown/amountToShowPerReq) { %>
+        <a href="/?page=<%=(amountShown/amountToShowPerReq) +1%>&&sorted=<%= sortByDate %>"> Visa flera </a>
+        <% } else { %>
+        <a href="/?page=1"> visa mindre </a>
+        <% } %>
       </section>
     </div>
   </body>

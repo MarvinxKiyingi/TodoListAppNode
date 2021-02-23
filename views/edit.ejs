@@ -55,8 +55,8 @@
               Sorting
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="/sort/latest">Latest first</a>
-              <a class="dropdown-item" href="/sort/oldest">Oldest first</a>
+              <a class="dropdown-item" href="/?page=<%=(amountShown/amountToShowPerReq)%>&&sorted=-1">Most recent</a>
+              <a class="dropdown-item" href="/?page=<%=(amountShown/amountToShowPerReq)%>&&sorted=1">In order</a>
             </div>
           </div>
         </div>
@@ -64,10 +64,10 @@
         <ul>
           <%TodoFromDB.forEach(item =>{%> <% if(item._id==toBeEdited){%>
           <li id="editPageLi">
-            <form class="editBtnWrapper" action="/edit/todo/<%=item._id%> " method="POST">
+            <form class="editBtnWrapper" action="/editToDo/<%=item._id%> " method="POST">
               <input type="text" name="Name" placeholder="Update Task" required />
               <input type="text" name="id" value="<%=item._id%>" hidden />
-              <a href=""
+              <a href="/"
                 ><button id="editSubmitBtn" type="submit"><i class="far fa-check-circle"></i></button
               ></a>
               <a href="/"
@@ -79,16 +79,21 @@
           <li>
             <%= item.Name%>
             <div class="editBtnWrapper">
-              <a href="/edit/editToDo/<%= item._id %> "
+              <a href="/editToDo/<%= item._id %>/?page=<%= page %>&&sorted=<%= sortByDate %> "
                 ><button class="editBtn"><i class="fas fa-pencil-alt"></i></button
               ></a>
-              <a href="/delete/todo/<%= item._id %> "
+              <a href="/deleteToDo/<%= item._id %> "
                 ><button class="dltBtn"><i class="fas fa-trash-alt"></i></button
               ></a>
             </div>
           </li>
           <%};%> <%})%>
         </ul>
+        <% if(totalTodoPages !== amountShown/amountToShowPerReq) { %>
+        <a href="/?page=<%=(amountShown/amountToShowPerReq) +1%>&&sorted=<%= sortByDate %>"> Show more </a>
+        <% } else { %>
+        <a href="/?page=1"> Show less </a>
+        <% } %>
       </section>
     </div>
   </body>
