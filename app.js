@@ -35,6 +35,7 @@ app.use(require('./routes/updateTodo'));
 app.use(require('./routes/deleteTodo'));
 //REGISTER, LOGIN AND AUTHENTICATION
 app.use(require('./routes/registerUser'));
+app.use(require('./routes/loginUser'));
 
 app.listen(port, () => {
   console.log(chalk.blue.bold('Server is running on port: ' + port));
