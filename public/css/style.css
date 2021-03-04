@@ -40,13 +40,15 @@
   }
 }
 
-.dropDownMenuOwnStyleWrapper {
+.dropDownMenuOwnStyleWrapper,
+#showMoreWrapper {
   width: 92%;
   margin: auto;
   margin-top: 0.5rem;
 }
 
-.dropDownMenuOwnStyleWrapper .dropdown button {
+.dropDownMenuOwnStyleWrapper .dropdown button,
+#showMoreWrapper .dropdown button {
   margin: 0;
   padding: 2px;
   background-color: transparent;
@@ -54,22 +56,27 @@
   color: green;
 }
 
-.dropDownMenuOwnStyleWrapper .dropdown button :focus {
+.dropDownMenuOwnStyleWrapper .dropdown button :focus,
+#showMoreWrapper .dropdown button :focus {
   border-color: none;
 }
 
 .dropDownMenuOwnStyleWrapper .dropdown button :active,
-.dropDownMenuOwnStyleWrapper .dropdown button :hover {
+.dropDownMenuOwnStyleWrapper .dropdown button :hover,
+#showMoreWrapper .dropdown button :active,
+#showMoreWrapper .dropdown button :hover {
   background-color: transparent;
   color: green;
 }
 
-.dropDownMenuOwnStyleWrapper .dropdown .btn-secondary.dropdown-toggle {
+.dropDownMenuOwnStyleWrapper .dropdown .btn-secondary.dropdown-toggle,
+#showMoreWrapper .dropdown .btn-secondary.dropdown-toggle {
   background-color: transparent;
   color: green;
 }
 
-.dropDownMenuOwnStyleWrapper .dropdown .btn-secondary.dropdown-toggle:focus {
+.dropDownMenuOwnStyleWrapper .dropdown .btn-secondary.dropdown-toggle:focus,
+#showMoreWrapper .dropdown .btn-secondary.dropdown-toggle:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -94,6 +101,48 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#userWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+#userWrapper #userContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  width: 92%;
+}
+
+#userWrapper #userContent h6 {
+  color: green;
+  margin-bottom: 0;
+}
+
+#userWrapper #userContent a {
+  color: black;
+  text-decoration: none;
+}
+
+#userWrapper #userContent a .signOutDoor {
+  margin-left: 5px;
+}
+
+#userWrapper #userContent a:hover {
+  color: green;
 }
 
 #Wrapper {
@@ -278,5 +327,16 @@ body {
 
 #toDoWrapper ul #editPageLi {
   background-color: transparent;
+}
+
+#showMoreWrapper a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: black;
+}
+
+#showMoreWrapper .arrow {
+  font-size: 1rem;
+  margin-left: 5px;
 }
 /*# sourceMappingURL=style.css.map */

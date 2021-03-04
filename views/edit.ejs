@@ -25,11 +25,14 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body>
-    <div>
-      <p>signed in user: <%= showUser %></p>
-      <a href="/signout"><button>Sign out</button></a>
-    </div>
     <div id="Wrapper">
+      <div id="userWrapper">
+        <div id="userContent">
+          <h6>User: <%= showUser %></h6>
+          <a href="/signout">Sign out<i class="fas fa-door-open signOutDoor"></i></a>
+        </div>
+      </div>
+
       <header id="headerText">
         <a href="/"><h1>To-do</h1></a>
         <div id="dateWrapper">
@@ -93,11 +96,16 @@
           </li>
           <%};%> <%})%>
         </ul>
-        <% if(totalTodoPages !== amountShown/amountToShowPerReq) { %>
-        <a href="/?page=<%=(amountShown/amountToShowPerReq) +1%>&&sorted=<%= sortByDate %>"> Show more </a>
-        <% } else { %>
-        <a href="/?page=1"> Show less </a>
-        <% } %>
+
+        <div id="showMoreWrapper">
+          <% if(totalTodoPages !== amountShown/amountToShowPerReq) { %>
+          <a class="showbtn" href="/?page=<%=(amountShown/amountToShowPerReq) +1%>&&sorted=<%= sortByDate %>"
+            >Show more<i class="fas fa-chevron-down arrow"></i
+          ></a>
+          <% } else { %>
+          <a class="showbtn" href="/?page=1"> Show less <i class="fas fa-angle-up arrow"></i></a>
+          <% } %>
+        </div>
       </section>
     </div>
   </body>

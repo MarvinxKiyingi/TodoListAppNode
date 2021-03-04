@@ -25,11 +25,14 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body>
-    <div>
-      <p>signed in user: <%= showUser %></p>
-      <a href="/signout"><button>Sign out</button></a>
-    </div>
     <div id="Wrapper">
+      <div id="userWrapper">
+        <div id="userContent">
+          <h6>User: <%= showUser %></h6>
+          <a href="/signout">Sign out<i class="fas fa-door-open signOutDoor"></i></a>
+        </div>
+      </div>
+
       <header id="headerText">
         <a href="/"><h1>To-do</h1></a>
         <div id="dateWrapper">
@@ -61,8 +64,6 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="/?page=<%=(amountShown/amountToShowPerReq)%>&&sorted=-1">Most recent</a>
               <a class="dropdown-item" href="/?page=<%=(amountShown/amountToShowPerReq)%>&&sorted=1">In order</a>
-              <!-- <a class="dropdown-item" href="/?sorted=-1">Most recent</a>
-              <a class="dropdown-item" href="/?sorted=1">In order</a> -->
             </div>
           </div>
         </div>
@@ -82,11 +83,16 @@
           </li>
           <%}) %>
         </ul>
-        <% if(totalTodoPages !== amountShown/amountToShowPerReq) { %>
-        <a href="/?page=<%=(amountShown/amountToShowPerReq) +1%>&&sorted=<%= sortByDate %>"> Visa flera </a>
-        <% } else { %>
-        <a href="/?page=1"> visa mindre </a>
-        <% } %>
+
+        <div id="showMoreWrapper">
+          <% if(totalTodoPages !== amountShown/amountToShowPerReq) { %>
+          <a class="showbtn" href="/?page=<%=(amountShown/amountToShowPerReq) +1%>&&sorted=<%= sortByDate %>"
+            >Show more<i class="fas fa-chevron-down arrow"></i
+          ></a>
+          <% } else { %>
+          <a class="showbtn" href="/?page=1"> Show less <i class="fas fa-angle-up arrow"></i></a>
+          <% } %>
+        </div>
       </section>
     </div>
   </body>
