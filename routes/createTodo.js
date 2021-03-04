@@ -2,9 +2,10 @@ const Router = require('express').Router();
 const chalk = require('chalk');
 const Todo = require('../model/Todo');
 var path = require('path');
+const reqLogedinUser = require('../middleware/verifyUser');
 
 // Create oporation
-Router.post('/', async (req, res) => {
+Router.post('/', reqLogedinUser, async (req, res) => {
   const sortByDate = +req.query.sorted || 1;
   const page = +req.query.page || 1;
   try {

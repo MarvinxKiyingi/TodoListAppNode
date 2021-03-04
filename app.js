@@ -2,6 +2,7 @@ const chalk = require('chalk'); // Denna navänds för att ändra färg i termin
 
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const mongoose = require('mongoose');
@@ -12,10 +13,11 @@ const port = process.env.PORT; // Har sparat dessa värden i env-filen
 const Todo = require('./model/Todo'); // importerat todo scheman från model mappen.
 
 // Middlewares
-app.use(express.json());
+app.use(express.json()); // FOR BODYPARSING (BODY PARSER) SO I CAN USE THE DATA FROM A POST REQ TROUGH JASON
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public')); // SHOWING EXPRESS WHERE OUR PUBLIC FOLDER IS
+app.set('view engine', 'ejs'); // RENDERS THE WEB PAGE WITH EJS OBS!! CAN BE MODIFIED TO HTML
 
 // connectiong to DB
 mongoose.connect(ConectionString, { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {

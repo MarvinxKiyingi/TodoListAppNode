@@ -21,7 +21,7 @@ Router.post('/register', async (req, res) => {
 
     const emailAlreadyExist = await User.findOne({ emailTypedByUser });
     if (emailAlreadyExist) {
-      return res.render('registerPage.ejs');
+      return res.render('registerPage.ejs', { err: 'This email already exsist' });
     }
 
     // CREATING A NEW USER IN THE DATABASE AND SAVING IT.
