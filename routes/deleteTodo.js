@@ -2,9 +2,10 @@ const Router = require('express').Router();
 const chalk = require('chalk');
 const Todo = require('../model/Todo');
 var path = require('path');
+const reqLogedinUser = require('../middleware/verifyUser');
 
 // Delete Operations
-Router.get('/deleteToDo/:id', async (req, res) => {
+Router.get('/deleteToDo/:id', reqLogedinUser, async (req, res) => {
   try {
     const removeToDo = req.params.id;
     await Todo.deleteOne({ _id: removeToDo });

@@ -30,6 +30,7 @@ mongoose.connect(ConectionString, { useUnifiedTopology: true, useNewUrlParser: t
 
 // linking routes
 //TODO APP ROUTES
+// app.use(require('./routes/todoPage'));
 app.use(require('./routes/createTodo'));
 app.use(require('./routes/readTodo'));
 app.use(require('./routes/updateTodo'));
