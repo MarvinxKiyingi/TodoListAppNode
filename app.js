@@ -2,7 +2,6 @@ const chalk = require('chalk'); // Denna navänds för att ändra färg i termin
 
 const express = require('express');
 const app = express();
-
 require('dotenv').config();
 
 const mongoose = require('mongoose');
@@ -35,6 +34,7 @@ app.use(require('./routes/updateTodo'));
 app.use(require('./routes/deleteTodo'));
 //REGISTER, LOGIN AND AUTHENTICATION
 app.use(require('./routes/registerUser'));
+app.use(require('./routes/loginUser'));
 
 app.listen(port, () => {
   console.log(chalk.blue.bold('Server is running on port: ' + port));
