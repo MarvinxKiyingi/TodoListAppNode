@@ -28,9 +28,7 @@ mongoose.connect(ConectionString, { useUnifiedTopology: true, useNewUrlParser: t
   console.log(chalk.magentaBright('Connected to the DB'));
 });
 
-// linking routes
 //TODO APP ROUTES
-// app.use(require('./routes/todoPage'));
 app.use(require('./routes/createTodo'));
 app.use(require('./routes/readTodo'));
 app.use(require('./routes/updateTodo'));
