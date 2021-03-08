@@ -2,7 +2,7 @@
 
 ## Installation
 
-### type in this into your terminal
+### Type in this into your terminal
 
 OBS! NOTE THAT I HAVE A HIDDEN ENV FILE WITH THIS CONTENT(Create your own .ENV file with these bullets)
 
@@ -14,10 +14,10 @@ OBS! NOTE THAT I HAVE A HIDDEN ENV FILE WITH THIS CONTENT(Create your own .ENV f
 npm start
 ```
 
-or this if the above line does not work
+Or this if the above line does not work
 
 ```bash
-npm start
+nodemon run app.js
 ```
 
-Now you are ready to enjoy my todolist app.
+Now you are ready and set to enjoy my todolist app with a login system.
