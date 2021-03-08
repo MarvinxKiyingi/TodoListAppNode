@@ -4,15 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Sign in</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body>
-    <h1>Log in page</h1>
-    <form action="/" method="GET">
-      <input type="text" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button type="submit">Log in</button>
-    </form>
-    <a href="/register"><button>Register</button></a>
+    <div id="Wrapper">
+      <header id="headerText">
+        <h1>Sign in</h1>
+      </header>
+
+      <section id="signinAndOutWrapper">
+        <div id="inputformWrapper">
+          <% if (err) { %>
+          <h4 id="errorMsg"><%= err %></h4>
+          <% } %>
+          <form action="/login" method="POST">
+            <label for="username"> Username:</label>
+            <input name="Email" type="text" placeholder="Email" required />
+            <label for="password"> Password:</label>
+            <input name="Password" type="password" placeholder="Password" required />
+            <button type="submit">Log in</button>
+          </form>
+          <p>Don't have an account yet? sig up <a class="userLink" href="/register">here</a></p>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
