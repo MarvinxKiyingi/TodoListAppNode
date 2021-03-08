@@ -15,9 +15,12 @@
 
       <section id="signinAndOutWrapper">
         <div id="inputformWrapper">
+          <% if (err) { %>
+          <h4 id="errorMsg"><%= err %></h4>
+          <% } %>
           <form action="/register" method="POST">
             <label for="fullname">Name:</label>
-            <input name="Name" type="text" placeholder="Firstname Lastname" required />
+            <input name="Name" type="text" placeholder="firstname lastname" required />
             <label for="email">Email:</label>
             <input name="Email" type="text" placeholder="name@gmail.com" required />
             <label for="password">Password:</label>

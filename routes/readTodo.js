@@ -8,7 +8,6 @@ const reqLogedinUser = require('../middleware/verifyUser');
 Router.get('/', reqLogedinUser, async (req, res) => {
   const sortByDate = +req.query.sorted || 1; // req.query.sorted = användarens värde 1= är det vi har hårdkodat.
   const page = +req.query.page || 1;
-
   try {
     const totalTodos = await Todo.find().countDocuments();
 
