@@ -2,6 +2,7 @@
 @import '_desktop-size.scss';
 @import '_dropDownMenu.scss';
 @import '_colors.scss';
+@import '_signInAndOut.scss';
 
 *,
 ::before,
@@ -21,7 +22,7 @@ body {
 #userWrapper {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   #userContent {
     display: flex;
     justify-content: space-between;
