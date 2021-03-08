@@ -20,7 +20,7 @@ app.use(express.static(__dirname + '/public')); // SHOWING EXPRESS WHERE OUR PUB
 app.set('view engine', 'ejs'); // RENDERS THE WEB PAGE WITH EJS OBS!! CAN BE MODIFIED TO HTML
 
 // connectiong to DB
-mongoose.connect(ConectionString, { useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
+mongoose.connect(ConectionString, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, (err) => {
   if (err) {
     console.log(chalk.redBright.bold('could not conect to the data base'));
     return;
