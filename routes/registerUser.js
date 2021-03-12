@@ -20,6 +20,10 @@ Router.post('/register', async (req, res) => {
 
   const userName = await User.findOne({ Name: nameTypedByUser });
   const userEmail = await User.findOne({ Email: emailTypedByUser });
+
+  const validation = joiSchema.validate(req.body);
+  // const joiErrorMessage = validation.error.details[0].message;
+
   try {
     if (userName || userEmail) {
       res.render('registerPage.ejs', { err: 'Username or email already exist' });
