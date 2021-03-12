@@ -39,5 +39,6 @@ app.use(require('./routes/loginUser'));
 app.use(require('./routes/sigoutUser'));
 
 app.listen(port, () => {
-  console.log(chalk.blue.bold('Server is running on port: ' + port));
+  // console.log(chalk.blue.bold('Server is running on port: ' + port));
+  console.log(chalk.blue.bold(`Server is running on: http://localhost:${port}`));
 });
