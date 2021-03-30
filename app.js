@@ -8,7 +8,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const ConectionString = process.env.MongoDbURL; // Har sparat dessa värden  i env-filen
 
-const port = process.env.PORT; // Har sparat dessa värden i env-filen
+const port = process.env.PORT || 7070; // Har sparat dessa värden i env-filen
 
 const Todo = require('./model/Todo'); // importerat todo scheman från model mappen.
 
